@@ -21,7 +21,7 @@ export const links = [
     description: "Utility-fist css framework",
     id: "6a9122b2-363b-4a4f-ad26-d6c55b51baed",
     imageUrl:
-      "https://tailwindcss.com/_next/static/media/twitter-large-card.85c0ff9e455da585949ff0aa50981857.jpg",
+      "https://nystudio107-ems2qegf7x6qiqq.netdna-ssl.com/img/blog/_1200x630_crop_center-center_82_none/speeding-up-tailwind-css-builds2.png?mtime=1602603359",
     title: "TailwindCSS",
     url: "https://tailwindcss.com",
   },

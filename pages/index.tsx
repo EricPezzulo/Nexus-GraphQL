@@ -1,8 +1,25 @@
-import Head from 'next/head';
-import { AwesomeLink } from '../components/AwesomeLink';
-import { links } from '../data/links';
+import Head from "next/head";
+import { AwesomeLink } from "../components/AwesomeLink";
+import { gql, useQuery } from "@apollo/client";
+
+const AllLinksQuery = gql`
+  query {
+    links {
+      id
+      title
+      url
+      description
+      imageUrl
+      category
+    }
+  }
+`;
 
 export default function Home() {
+  const { data, error, loading } = useQuery(AllLinksQuery);
+  console.log(error);
+  if (loading) return <p>loading</p>;
+  if (error) return <p>oops something went wrong {error.message}</p>;
   return (
     <div>
       <Head>
@@ -12,7 +29,7 @@ export default function Home() {
 
       <div className="container mx-auto max-w-5xl my-20">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {links.map((link) => (
+          {data?.links.map((link) => (
             <AwesomeLink
               key={link.id}
               url={link.url}
